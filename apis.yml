@@ -1,0 +1,84 @@
+aid: admiral-group
+url: https://raw.githubusercontent.com/api-evangelist/admiral-group/refs/heads/main/apis.yml
+name: Admiral Group
+kind: company
+description: >-
+  Admiral Group plc is a FTSE 100 personal-lines insurance group headquartered in
+  Cardiff, Wales, and listed on the London Stock Exchange since 2004. Its home
+  market is the United Kingdom, where it is one of the largest motor insurers,
+  trading through the Admiral, Bell, Diamond, elephant.co.uk and Veygo brands and
+  underwriting through EUI Limited and Admiral Insurance Company Limited. Beyond
+  UK motor it writes household, travel and pet insurance (expanded by the 2024
+  acquisition of RSA's UK home and pet book, including the MORE THAN brand),
+  runs the Admiral Money consumer lending arm, owns the Confused.com price
+  comparison site, and operates internationally as ConTe.it in Italy, L'olivier
+  in France and Admiral Seguros in Spain. Its Admiral Pioneer venture arm builds
+  new businesses including Veygo, Admiral Business and the API-first embedded
+  insurance venture Connect by Admiral, and in 2026 it agreed to acquire the
+  commercial fleet insurtech Flock. Admiral's API posture is honestly recorded
+  here as closed: it is a direct-to-consumer and price-comparison distributor,
+  not a broker-channel or platform carrier. No developer, developers, docs or api
+  subdomain resolves on admiralgroup.co.uk; the corporate site is bot-blocked to
+  automated probes; admiral.com publishes 837 sitemap URLs with no developer,
+  API, partner or integration page; and the only API hosts that resolve
+  (api.admiral.com, api.veygo.com) are undocumented private mobile and web
+  backends that return 502 and 403 respectively. No public self-serve API, no
+  OpenAPI, no Postman collection, no GraphQL surface, no webhook or event
+  catalog, and no ACORD, AL3 or NGDS reference was found. Distribution
+  integration runs through price-comparison-website connections and partner
+  agreements, not through a published developer program.
+accessModel:
+  pricing: unknown
+  onboarding: partner-gated
+  trial: false
+  try_now: false
+  public: false
+  label: No public API - partner-gated
+  confidence: high
+  source:
+  - probe
+  - documentation
+  generated: '2026-07-25'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Insurance
+- United Kingdom
+- Property and Casualty
+- Motor Insurance
+- Home Insurance
+- Pet Insurance
+- Travel Insurance
+- Carrier
+- Personal Lines
+- Price Comparison
+- Embedded Insurance
+- Consumer Lending
+- Underwriting
+- Claims
+- Company
+created: '2026-07-25'
+modified: '2026-07-25'
+specificationVersion: '0.19'
+x-tier: carrier-pc
+x-home-market: United Kingdom
+x-api-posture: partner-gated
+apis: []
+common:
+- type: Website
+  url: https://www.admiralgroup.co.uk/
+- type: Website
+  url: https://www.admiral.com/
+- type: About
+  url: https://www.admiral.com/about-us
+- type: InvestorRelations
+  url: https://www.admiralgroup.co.uk/investors
+- type: LinkedIn
+  url: https://www.linkedin.com/company/admiral-group-plc
+- type: Sitemap
+  url: https://www.admiral.com/sitemap.xml
+- type: Robots
+  url: https://www.admiral.com/robots.txt
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

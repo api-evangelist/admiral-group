@@ -1,0 +1,306 @@
+aid: admiral-group
+name: Admiral Group
+review:
+  question: Does Admiral Group plc expose a public, self-serve developer portal or API for its insurance products?
+  answer: false
+  date: '2026-07-25'
+  reviewer: API Evangelist
+  homeMarket: United Kingdom
+  tier: carrier-pc
+  gated: true
+  openapiHarvested: false
+  specsCount: 0
+findings:
+  summary: |
+    Admiral Group plc publishes no public developer portal and no public
+    self-serve API. It is a direct-to-consumer and price-comparison
+    personal-lines carrier, not a broker-channel or platform carrier, so the
+    forcing functions that produce developer surfaces elsewhere in insurance
+    (broker/agency integration, embedded distribution, regulatory data
+    sharing) do not apply to it. The UK has no open-insurance obligation - the
+    FCA's Open Finance work remains consultation, not rule - and the London
+    Market modernisation programme (Blueprint Two, PPL, Whitespace, Ki) that
+    drives the country's real insurance API infrastructure is a subscription-
+    market effort aimed at brokers and syndicates, which Admiral, a retail
+    motor insurer, sits entirely outside of.
+
+    Every candidate developer host was probed and none resolves. The corporate
+    site actively blocks automated clients. The two API hostnames that do
+    resolve are undocumented private application backends. An independent
+    third-party API directory (API Tracker) carries an Admiral Group entry with
+    every developer field - docs, API reference, webhooks, authentication,
+    sandbox, OpenAPI, base endpoint, GraphQL - left empty, corroborating the
+    absence.
+
+    Recording "no public API surface; partner-gated" is the accurate outcome
+    for this company.
+  developerPortal:
+    url: ''
+    confirmed: false
+    classification: none-found
+    note: >-
+      No first-party developer portal exists. Not a login wall and not a
+      marketing innovation page - there is simply no developer surface of any
+      kind on any Admiral Group property.
+  probes:
+  - url: https://developer.admiralgroup.co.uk
+    status: 000
+    dns: NXDOMAIN
+    note: Host does not resolve.
+  - url: https://developers.admiralgroup.co.uk
+    status: 000
+    dns: NXDOMAIN
+    note: Host does not resolve.
+  - url: https://docs.admiralgroup.co.uk
+    status: 000
+    dns: NXDOMAIN
+    note: Host does not resolve.
+  - url: https://api.admiralgroup.co.uk
+    status: 000
+    dns: NXDOMAIN
+    note: Host does not resolve.
+  - url: https://www.admiralgroup.co.uk/
+    status: 403
+    note: >-
+      Corporate investor-relations site. Returns 403 to curl and times out to
+      automated fetchers; bot-protected. No developer content reachable.
+  - url: https://www.admiralgroup.co.uk/developers
+    status: 403
+    note: Bot-blocked; no developer content.
+  - url: https://www.admiralgroup.co.uk/api
+    status: 403
+    note: Bot-blocked; no developer content.
+  - url: https://www.admiralgroup.co.uk/partners
+    status: 403
+    note: Bot-blocked; no partner developer content.
+  - url: https://www.admiralgroup.co.uk/integrations
+    status: 403
+    note: Bot-blocked; no integration content.
+  - url: https://www.admiral.com/
+    status: 200
+    note: >-
+      UK consumer insurance site operated by EUI Limited, a subsidiary of
+      Admiral Group plc. Motor, home, travel, pet, breakdown, multicover, plus
+      Admiral Money loans and car finance. No developer or API link anywhere.
+  - url: https://www.admiral.com/developers
+    status: 404
+  - url: https://www.admiral.com/developer
+    status: 404
+  - url: https://www.admiral.com/api
+    status: 404
+  - url: https://www.admiral.com/partners
+    status: 404
+  - url: https://www.admiral.com/api-docs
+    status: 404
+  - url: https://www.admiral.com/openapi.json
+    status: 404
+  - url: https://www.admiral.com/swagger.json
+    status: 404
+  - url: https://www.admiral.com/.well-known/openid-configuration
+    status: 404
+  - url: https://www.admiral.com/.well-known/security.txt
+    status: 404
+  - url: https://www.admiral.com/llms.txt
+    status: 404
+  - url: https://www.admiral.com/robots.txt
+    status: 200
+    note: Standard Drupal robots.txt. No developer or API paths disallowed or referenced.
+  - url: https://www.admiral.com/sitemap.xml
+    status: 200
+    note: >-
+      837 <loc> entries enumerated and grepped for api/develop/partner/integrat/
+      broker/tech. Only four incidental matches, all marketing or editorial
+      (multicover-insurance/tech-through-time, national-trust-partnership, a
+      ghost-broker scam guide, a pet-insurance therapies article). Zero
+      developer, API, or integration pages.
+  - url: https://api.admiral.com/
+    status: 502
+    dns: 34.49.139.91
+    note: >-
+      Host resolves but returns HTTP 502. Undocumented private backend. Not a
+      developer surface; /openapi.json and /swagger.json also 502.
+  - url: https://docs.admiral.com
+    status: 000
+    dns: NXDOMAIN
+  - url: https://developer.admiral.com
+    status: 000
+    dns: NXDOMAIN
+  - url: https://developers.admiral.com
+    status: 000
+    dns: NXDOMAIN
+  - url: https://www.veygo.com/
+    status: 200
+    note: >-
+      Veygo, Admiral Group's pay-as-you-go / temporary / learner motor brand,
+      built inside Admiral Pioneer. Consumer web and mobile app only; no
+      developer program.
+  - url: https://api.veygo.com/openapi.json
+    status: 403
+    dns: 18.161.21.19 (AWS)
+    note: >-
+      Host resolves to AWS edge and returns application/json {"message":
+      "Forbidden"} - the signature of a private AWS API Gateway backing the
+      Veygo apps. Undocumented, unauthenticated access denied, not a published
+      API. /swagger.json returns the same 403.
+  - url: https://developer.veygo.com
+    status: 000
+    dns: NXDOMAIN
+  - url: https://www.veygo.com/.well-known/openid-configuration
+    status: 404
+  - url: https://www.admiralpioneer.com/
+    status: 200
+    note: >-
+      Admiral Pioneer, the group's venture-building arm. Lists Veygo, Admiral
+      Business and the Flock partnership. Marketing site; no developer,
+      API, or technical integration link.
+  - url: https://www.admiralbusiness.com/
+    status: 200
+    note: SME commercial insurance brand. Consumer/SME quote flow only; no API.
+  - url: https://connectbyadmiral.com/
+    status: 403
+    dns: 75.2.70.75
+    note: >-
+      Connect by Admiral, described in trade press as an "API-first embedded
+      insurance platform" built with Root's platform for point-of-sale
+      distribution. The root domain now returns 403 and www returns 404 - the
+      site appears retired or unpublished. No developer subdomain
+      (developer./docs.connectbyadmiral.com both NXDOMAIN). Its API-first claim
+      is a B2B partner integration story, never a published developer program;
+      no reference documentation was ever public.
+  - url: https://www.connectbyadmiral.com/
+    status: 404
+  - url: https://www.confused.com/
+    status: 200
+    note: >-
+      Confused.com, the price comparison site owned by Admiral Group. No
+      developer surface; /api returns 404 and developer.confused.com is
+      NXDOMAIN.
+  - url: https://api.github.com/orgs/admiralgroup
+    status: 404
+    note: No GitHub organization under admiralgroup, admiral-group, AdmiralGroupPlc, or admiral-pioneer.
+  - url: https://api.github.com/orgs/Veygo
+    status: 200
+    note: >-
+      A GitHub organization named Veygo exists but its public repository
+      listing is empty - zero public repos, therefore zero public specs or SDKs.
+  - url: https://api.github.com/orgs/confusedcom
+    status: 200
+    note: GitHub organization exists with zero public repositories.
+  - url: https://apitracker.io/a/admiral
+    status: 200
+    note: >-
+      Third-party API directory entry for Admiral Group plc (categorised under
+      Insurance, linked to admiral.com). Every developer field - docs, API
+      reference, webhooks, authentication, sandbox, OpenAPI/Swagger, base
+      endpoint, GraphQL - is empty. Independent corroboration of no public API.
+  acordPosture: no ACORD reference found
+  acordNote: >-
+    No ACORD, AL3, ACORD XML, NGDS, or ACORD-certified reference appears on any
+    Admiral Group property or in trade coverage of the group. This is
+    consistent with its business model rather than a gap: ACORD AL3 and agency-
+    download plumbing serve the broker/agency distribution channel, and Admiral
+    is a direct and price-comparison personal-lines writer. Its actual data
+    integrations are UK market utilities and comparison-site connections rather
+    than ACORD messaging. The one "Admiral" that does surface alongside ACORD
+    forms in search is Admiral Insurance Group (admiralins.com), the US excess
+    and surplus carrier owned by W. R. Berkley - a different company and a
+    homonym trap that must not be attributed here.
+  insuranceVerbs:
+    quote:
+      exposed: false
+      note: >-
+        Quote is executed on Admiral's own consumer funnels and through
+        price-comparison-website connections under private commercial
+        agreements. No public quote API.
+    bind:
+      exposed: false
+    issue:
+      exposed: false
+    fnol:
+      exposed: false
+      note: >-
+        Claims are reported by phone and through the authenticated My Account
+        web/app surface. No public FNOL API and no partner FNOL documentation.
+    audience: none-public
+  authModel:
+    scheme: none-public
+    note: >-
+      No public authentication scheme is documented because no public API
+      exists. Customer-facing authentication is a session login at
+      admiral.com/myaccount (Thales/Gemalto identity solution referenced in
+      vendor case-study material). Neither /.well-known/openid-configuration
+      nor /.well-known/oauth-authorization-server is served on admiral.com or
+      veygo.com (both 404). The private api.veygo.com gateway rejects
+      anonymous calls with 403 Forbidden and publishes no auth documentation.
+  webhooks:
+    documented: false
+    asyncapi: false
+    note: No event catalog, webhook documentation, or AsyncAPI artifact exists. Absence is the finding.
+  postman:
+    public: false
+    note: No public Postman workspace or collection found for Admiral Group or any of its brands.
+  graphql:
+    public: false
+    note: No /graphql surface found on admiral.com, veygo.com, or admiralgroup.co.uk.
+  grpc:
+    public: false
+    note: No published .proto files.
+  sdks:
+    public: false
+    note: No public SDKs; no public GitHub repositories under any Admiral-owned organization.
+  transports:
+  - protocol: REST
+    scheme: https
+    documented: false
+    note: >-
+      Private REST backends exist (api.admiral.com, api.veygo.com) but are
+      undocumented and reject anonymous access. Nothing published.
+  - protocol: GraphQL
+    documented: false
+  - protocol: WebSocket
+    scheme: wss
+    documented: false
+  - protocol: SOAP
+    documented: false
+    note: No ACORD XML / SOAP partner endpoint is published.
+  - protocol: EDI
+    documented: false
+    note: No AL3 / IVANS-style agency download surface, consistent with a direct-to-consumer carrier.
+  subsidiaryNote: >-
+    Admiral Group agreed in February 2026 to acquire Flock, the UK commercial
+    fleet insurtech, for GBP 80m. Flock operates its own self-service Flock
+    Portal and broker channel; flockcover.com and api.flockcover.com both
+    return 403 to automated probes and no developer or docs subdomain resolves.
+    Any Flock developer surface belongs to a separate provider record and is
+    deliberately not claimed as an Admiral Group public API here.
+sources:
+- url: https://www.admiral.com/
+  type: Website
+  note: Consumer product lines and brand ownership (EUI Limited, subsidiary of Admiral Group plc).
+- url: https://www.admiral.com/sitemap.xml
+  type: Sitemap
+  note: Full 837-URL enumeration used to rule out any developer or API page.
+- url: https://www.admiralpioneer.com/
+  type: Website
+  note: Venture arm; Veygo, Admiral Business, Flock partnership. No technical integration links.
+- url: https://apitracker.io/a/admiral
+  type: ThirdParty
+  note: Empty developer-field profile for Admiral Group plc.
+- url: https://openinsuranceobs.com/connect-by-admiral/
+  type: ThirdParty
+  note: Connect by Admiral described as an Admiral Group plc embedded-insurance venture.
+- url: https://rootplatform.com/blog/root-collaborates-with-connect-by-admiral-to-develop-embedded-insurance-platform
+  type: ThirdParty
+  note: Root supplied Connect's API connectivity architecture - a partner integration, not a public API.
+- url: https://en.wikipedia.org/wiki/Admiral_Group
+  type: Reference
+  note: Corporate history, LSE listing, scale, brands, RSA home/pet acquisition, Flock acquisition.
+actions:
+  apisYmlUpdated: true
+  openapiDirectoryCreated: false
+  reason: >-
+    Nothing real was found to harvest. apis[] is left empty and no openapi/
+    directory was created, because recording the absence accurately is the
+    correct outcome for a direct-to-consumer UK personal-lines carrier with no
+    broker channel, no open-insurance mandate, and no published developer
+    program.
