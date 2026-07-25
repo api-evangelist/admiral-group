@@ -1,0 +1,4 @@
+Contact: mailto:security@confused.com
+Expires: 2027-07-15T01:00:00Z
+Policy: https://www.confused.com/privacy-and-security/security/security-disclosure-policy
+Preferred-Languages: en

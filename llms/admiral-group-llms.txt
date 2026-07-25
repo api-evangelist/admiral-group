@@ -1,0 +1,43 @@
+# Admiral Group
+
+> Admiral Group plc is a FTSE 100 UK personal-lines insurance group headquartered in Cardiff, Wales. It is one of the largest UK motor insurers, trading as Admiral, Bell, Diamond, elephant.co.uk and Veygo, underwriting through EUI Limited and Admiral Insurance Company Limited, and it also writes home, travel and pet insurance, runs Admiral Money, owns the Confused.com price comparison site, and operates as ConTe.it (Italy), L'olivier (France) and Admiral Seguros (Spain). **Admiral Group publishes no public API and no developer portal.** This file records that absence accurately, along with the small number of machine-readable surfaces that do exist across its brands.
+
+## API posture
+
+- No public, self-serve API. No developer program, no API keys, no sandbox.
+- No OpenAPI, Swagger, GraphQL, gRPC/protobuf, AsyncAPI, webhook catalog or Postman collection was found on any Admiral Group property.
+- Distribution integration happens through price-comparison-website connections and private partner agreements, not a published developer program. Admiral is a direct-to-consumer and price-comparison personal-lines writer, so the broker/agency forcing functions (ACORD AL3, agency download, NGDS) that produce developer surfaces elsewhere in insurance do not apply. No ACORD reference exists on any Admiral property.
+- The UK has no open-insurance mandate; the FCA's Open Finance work remains consultation. The London Market modernisation programme (Blueprint Two, PPL, Whitespace, Ki) that drives real UK insurance API infrastructure is a subscription-market effort Admiral sits outside of.
+- Hosts named `api.*` do exist but are private application backends, undocumented and closed to anonymous callers: `api.admiral.com` returns HTTP 502 on every path, `api.veygo.com` returns `403 {"message":"Forbidden"}` from a private AWS API Gateway, and `api.confused.com` returns `{"statusCode":404,"message":"Resource not found"}` from a private JSON gateway.
+- Homonym warning: **Admiral Insurance Group** (admiralins.com, a W. R. Berkley US excess & surplus carrier) and **Admiral VRM** (getadmiral.com, ad-block revenue recovery, publisher of `@admiral-vrm/sdk-node`) are different companies. Do not attribute their APIs or SDKs to Admiral Group plc.
+
+## Machine-readable artifacts in this record
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/admiral-group/refs/heads/main/apis.yml): APIs.json provider record for Admiral Group.
+- [Well-known index](https://raw.githubusercontent.com/api-evangelist/admiral-group/refs/heads/main/well-known/admiral-group-well-known.yml): every `/.well-known/` path probed across all brand hosts, with status codes.
+- [security.txt](https://raw.githubusercontent.com/api-evangelist/admiral-group/refs/heads/main/well-known/admiral-group-security.txt): RFC 9116 security.txt published by Confused.com, harvested verbatim.
+- [Vulnerability disclosure](https://raw.githubusercontent.com/api-evangelist/admiral-group/refs/heads/main/security/admiral-group-vulnerability-disclosure.yml): the Confused.com security disclosure policy (safe harbour, two-working-day acknowledgement, no bug bounty platform).
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/admiral-group/refs/heads/main/security/admiral-group-domain-security.yml): TLS/HSTS/DNSSEC/CAA/SPF/DMARC probe of nine hosts and five registrable domains.
+- [Packages](https://raw.githubusercontent.com/api-evangelist/admiral-group/refs/heads/main/packages/admiral-group-packages.yml): registry search results - no client SDKs; the only Admiral-owned npm packages are two defensive scope placeholders published by Veygo engineering.
+- [review.yml](https://raw.githubusercontent.com/api-evangelist/admiral-group/refs/heads/main/review.yml): the full probe log behind the "no public API" finding.
+
+## Brands and properties
+
+- [Admiral Group plc (corporate)](https://www.admiralgroup.co.uk/): investor relations; bot-protected to automated clients.
+- [Admiral (UK consumer)](https://www.admiral.com/): motor, home, travel, pet, breakdown, multicover, Admiral Money loans and car finance, operated by EUI Limited.
+- [Confused.com](https://www.confused.com/): price comparison site owned by Admiral Group; the only group brand publishing a security.txt.
+- [Veygo](https://www.veygo.com/): pay-as-you-go, temporary and learner motor cover, built inside Admiral Pioneer.
+- [Admiral Pioneer](https://www.admiralpioneer.com/): venture-building arm (Veygo, Admiral Business, the Flock partnership).
+- [Admiral Business](https://www.admiralbusiness.com/): SME commercial insurance.
+- Connect by Admiral: an embedded-insurance venture described in trade press as "API-first" (built on Root's platform for point-of-sale distribution). That was a B2B partner integration story, never a published developer program; connectbyadmiral.com now returns 403 and its www host 404, and no docs or developer subdomain resolves.
+- Flock: the UK commercial fleet insurtech Admiral agreed to acquire in February 2026. Any Flock developer surface belongs to a separate provider record and is deliberately not claimed here.
+
+## Support and legal
+
+- [Contact us](https://www.admiral.com/contact-us)
+- [Help and support hub](https://www.admiral.com/help-support-hub)
+- [My Account (customer login)](https://www.admiral.com/myaccount)
+- [Terms and conditions](https://www.admiral.com/terms-and-conditions)
+- [Privacy and security](https://www.admiral.com/your-privacy-and-security)
+- [Cookie policy](https://www.admiral.com/cookie-policy)
+- [Security disclosure policy (Confused.com)](https://www.confused.com/privacy-and-security/security/security-disclosure-policy)

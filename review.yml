@@ -295,6 +295,119 @@ sources:
 - url: https://en.wikipedia.org/wiki/Admiral_Group
   type: Reference
   note: Corporate history, LSE listing, scale, brands, RSA home/pet acquisition, Flock acquisition.
+enrichment:
+- round: 2
+  date: '2026-07-25'
+  contractDiscovery:
+    result: no machine-readable contract found
+    probes:
+    - url: https://api.admiral.com/openapi.json
+      status: 502
+    - url: https://api.admiral.com/swagger.json
+      status: 502
+    - url: https://api.admiral.com/v1/openapi.json
+      status: 502
+    - url: https://api.admiral.com/api-docs
+      status: 502
+    - url: https://api.admiral.com/docs
+      status: 502
+    - url: https://api.veygo.com/openapi.json
+      status: 403
+    - url: https://api.veygo.com/v1/openapi.json
+      status: 403
+    - url: https://api.veygo.com/docs
+      status: 403
+    - url: https://api.veygo.com/api-docs
+      status: 403
+    - url: https://api.confused.com/
+      status: 404
+      note: >-
+        NEW host discovered this round. api.confused.com resolves through
+        Cloudflare and answers with a JSON envelope
+        {"statusCode":404,"message":"Resource not found"} - a live private
+        gateway behind the Confused.com apps. /openapi.json, /swagger.json,
+        /docs, /api-docs, /graphql, /v1/openapi.json and
+        /.well-known/openid-configuration all return the same 404. No public
+        spec, no docs, no GraphQL.
+    - url: https://api.confused.com/openapi.json
+      status: 404
+    - url: https://api.confused.com/graphql
+      status: 404
+    - url: https://www.confused.com/graphql
+      status: 404
+    - url: https://www.admiral.com/graphql
+      status: 404
+    - url: https://www.confused.com/llms.txt
+      status: 404
+    - url: https://www.veygo.com/llms.txt
+      status: 404
+    note: >-
+      GraphQL introspection was not attempted because no /graphql surface
+      answers on any host. No MCP server exists for any Admiral Group brand.
+  newFindings:
+  - kind: security.txt
+    url: https://www.confused.com/.well-known/security.txt
+    status: 200
+    note: >-
+      First machine-readable artifact found anywhere in the group. RFC 9116
+      security.txt on Confused.com (wholly owned by Admiral Group plc), with
+      Contact security@confused.com, Expires 2027-07-15, and a Policy link to a
+      full written security disclosure policy (safe harbour, two-working-day
+      acknowledgement, no bug bounty platform). Harvested verbatim to
+      well-known/admiral-group-security.txt. admiral.com, veygo.com and
+      admiralgroup.co.uk serve no security.txt.
+  - kind: npm packages
+    note: >-
+      Two npm packages are published by the maintainer veygo-engineering -
+      @veygo/component-library and @veygo-eng/component-library. Neither is a
+      library: the tarball contains a single index.js that throws "If you are
+      seeing this, you are not properly authenticated to the private registry."
+      They are dependency-confusion / namespace-squatting defenses reserving
+      the scopes on the public registry. Recorded as scope-placeholders, not
+      SDKs. No SDKs pointer emitted.
+  - kind: domain security
+    note: >-
+      Nine hosts and five registrable domains probed. All HTTPS; TLS 1.3
+      everywhere except www.admiral.com (TLS 1.2). HSTS on admiral.com,
+      confused.com, api.confused.com and admiralpioneer.com only. No domain
+      signs with DNSSEC. Only confused.com publishes CAA. All five domains
+      publish SPF and DMARC - admiralgroup.co.uk and admiral.com at p=reject,
+      confused.com/veygo.com/admiralpioneer.com at p=quarantine.
+  - kind: postman
+    note: >-
+      Re-confirmed via the Postman public search API - zero workspaces,
+      collections, APIs or specifications for "admiral insurance" or "veygo".
+  - kind: github
+    note: >-
+      Re-confirmed. github.com/Veygo and github.com/confusedcom exist with zero
+      public repositories; admiralgroup, admiral-group, admiralpioneer and
+      veygo-engineering are all 404.
+  artifactsWritten:
+  - well-known/admiral-group-well-known.yml
+  - well-known/admiral-group-security.txt
+  - security/admiral-group-domain-security.yml
+  - security/admiral-group-vulnerability-disclosure.yml
+  - packages/admiral-group-packages.yml
+  - llms/admiral-group-llms.txt
+  notApplicable:
+    openapi: no spec exists on any host
+    asyncapi: no event, webhook or streaming surface documented
+    graphql: no /graphql surface answers
+    grpc: no published .proto
+    mcp: no MCP server, and no OpenAPI to derive candidate tools from
+    skills: no OpenAPI to ground agent skills in
+    overlays: no OpenAPI to overlay
+    errors: no spec and no published error reference
+    conventions: no published request/response semantics
+    scopes: no OAuth surface
+    authentication: no public authentication scheme is documented
+    lifecycle: no versioning policy, no deprecation policy, no status page (status.* NXDOMAIN on all brands)
+    changelog: no dated API changelog
+    cli: no first-party CLI
+    components: no documented embeddable UI components
+    sandbox: no sandbox or test credentials
+    data-model: no spec to derive an entity graph from
+    trust-center: no trust/compliance center found on any brand domain
 actions:
   apisYmlUpdated: true
   openapiDirectoryCreated: false

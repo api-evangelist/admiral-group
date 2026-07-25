@@ -1,0 +1,84 @@
+generated: '2026-07-25'
+method: searched
+source: npm registry search + PyPI probes + GitHub organization enumeration
+summary:
+  official_sdks: 0
+  api_client_libraries: 0
+  published_packages: 2
+  note: >-
+    Admiral Group publishes no API client SDK in any language. npm, PyPI,
+    Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist and crates.io were
+    searched for admiral / admiralgroup / veygo / confused and the only
+    Admiral-owned artifacts on any registry are two npm scope placeholders
+    published by the Veygo engineering team. Both are dependency-confusion
+    defenses, not libraries.
+packages:
+- language: javascript
+  registry: npm
+  name: "@veygo/component-library"
+  url: https://www.npmjs.com/package/@veygo/component-library
+  version: 1.0.0
+  license: ISC
+  npm_maintainer: veygo-engineering
+  official: true
+  kind: scope-placeholder
+  api_client: false
+  note: >-
+    Not a usable library. The published tarball contains a single index.js that
+    throws "If you are seeing this, you are not properly authenticated to the
+    private registry." - a dependency-confusion / namespace-squatting defense
+    reserving the @veygo scope on the public registry while the real component
+    library lives in Veygo's private registry.
+- language: javascript
+  registry: npm
+  name: "@veygo-eng/component-library"
+  url: https://www.npmjs.com/package/@veygo-eng/component-library
+  version: 1.0.2
+  license: ISC
+  npm_maintainer: veygo-engineering
+  official: true
+  kind: scope-placeholder
+  api_client: false
+  note: Same defensive placeholder published under the @veygo-eng scope.
+registries_searched:
+- registry: npm
+  queries: [admiral, admiralgroup, veygo, confused.com]
+  result: >-
+    Only the two @veygo* placeholders above are Admiral-owned. All other
+    "admiral" hits are unrelated third parties - @admiral-ds/* (a Russian design
+    system), @admiral-vrm/sdk-node (Admiral VRM, the US ad-block revenue
+    recovery company at getadmiral.com), @devfamily/admiral, @admiral-io/sdk
+    (DataliftHQ) and the admiral test runner - and must not be attributed to
+    Admiral Group plc.
+- registry: pypi
+  queries: [admiral, veygo, confused]
+  result: >-
+    veygo and confused 404. An unrelated project named "admiral" exists and is
+    not an Admiral Group package.
+- registry: maven-central
+  result: no Admiral Group artifacts
+- registry: nuget
+  result: no Admiral Group artifacts
+- registry: pkg.go.dev
+  result: no Admiral Group modules
+- registry: rubygems
+  result: no Admiral Group gems
+- registry: packagist
+  result: no Admiral Group packages
+- registry: crates.io
+  result: no Admiral Group crates
+source_repositories:
+- org: https://github.com/Veygo
+  status: 200
+  public_repos: 0
+- org: https://github.com/confusedcom
+  status: 200
+  public_repos: 0
+- org: https://github.com/admiralgroup
+  status: 404
+- org: https://github.com/admiral-group
+  status: 404
+- org: https://github.com/admiralpioneer
+  status: 404
+- org: https://github.com/veygo-engineering
+  status: 404

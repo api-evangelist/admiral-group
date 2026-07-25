@@ -1,0 +1,110 @@
+generated: '2026-07-25'
+method: searched
+source: live probe of every Admiral Group brand host
+note: >-
+  Admiral Group publishes no developer program, so the /.well-known/ surface was
+  probed across every brand host that resolves. Only one document exists across
+  the whole group: an RFC 9116 security.txt on the Confused.com price-comparison
+  brand (wholly owned by Admiral Group plc). Every other path 404s, or the host
+  refuses automated clients (www.admiralgroup.co.uk times out to any non-browser
+  client; api.admiral.com returns 502; api.veygo.com and www.veygo.com return
+  403 to all paths including nonexistent ones, so those results are inconclusive
+  rather than negative). Absence is the finding - nothing was fabricated.
+hosts:
+- host: https://www.confused.com
+  brand: Confused.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    file: admiral-group-security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/change-password
+    status: 404
+- host: https://www.admiral.com
+  brand: Admiral (EUI Limited, UK consumer)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://api.admiral.com
+  brand: Admiral private mobile/web backend
+  note: Host resolves but every path returns HTTP 502; undocumented private backend.
+  documents:
+  - path: /.well-known/security.txt
+    status: 502
+  - path: /.well-known/openid-configuration
+    status: 502
+  - path: /.well-known/oauth-authorization-server
+    status: 502
+  - path: /.well-known/api-catalog
+    status: 502
+  - path: /.well-known/ai-plugin.json
+    status: 502
+- host: https://www.admiralgroup.co.uk
+  brand: Admiral Group plc corporate
+  note: >-
+    Bot-protected. Every request from a non-browser client times out with no
+    bytes received (curl status 000). Result is inconclusive, not a confirmed
+    absence.
+  documents:
+  - path: /.well-known/security.txt
+    status: 000
+  - path: /.well-known/openid-configuration
+    status: 000
+  - path: /.well-known/oauth-authorization-server
+    status: 000
+  - path: /.well-known/api-catalog
+    status: 000
+  - path: /.well-known/ai-plugin.json
+    status: 000
+- host: https://www.veygo.com
+  brand: Veygo (Admiral Pioneer)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://api.veygo.com
+  brand: Veygo private AWS API Gateway
+  note: >-
+    Returns 403 {"message":"Forbidden"} to every path, including paths that do
+    not exist, so per-path results are inconclusive. Private gateway.
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+summary:
+  documents_found: 1
+  security_txt: true
+  openid_configuration: false
+  oauth_authorization_server: false
+  api_catalog: false
+  ai_plugin: false

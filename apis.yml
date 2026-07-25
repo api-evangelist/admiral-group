@@ -65,10 +65,21 @@ x-home-market: United Kingdom
 x-api-posture: partner-gated
 apis: []
 common:
+- type: DomainSecurity
+  url: security/admiral-group-domain-security.yml
 - type: Website
   url: https://www.admiralgroup.co.uk/
 - type: Website
   url: https://www.admiral.com/
+- type: Website
+  name: Confused.com
+  url: https://www.confused.com/
+- type: Website
+  name: Veygo
+  url: https://www.veygo.com/
+- type: Website
+  name: Admiral Pioneer
+  url: https://www.admiralpioneer.com/
 - type: About
   url: https://www.admiral.com/about-us
 - type: InvestorRelations
@@ -79,6 +90,42 @@ common:
   url: https://www.admiral.com/sitemap.xml
 - type: Robots
   url: https://www.admiral.com/robots.txt
+- type: Support
+  url: https://www.admiral.com/contact-us
+- type: HelpCenter
+  url: https://www.admiral.com/help-support-hub
+- type: Blog
+  name: Admiral Magazine
+  url: https://www.admiral.com/magazine
+- type: Press
+  url: https://www.admiral.com/press-office
+- type: Login
+  name: My Account
+  url: https://www.admiral.com/myaccount
+- type: TermsOfService
+  url: https://www.admiral.com/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.admiral.com/your-privacy-and-security
+- type: Cookies
+  url: https://www.admiral.com/cookie-policy
+- type: Accessibility
+  url: https://www.admiral.com/accessibility
+- type: Careers
+  url: https://admiraljobs.co.uk
+- type: SecurityTxt
+  name: Confused.com security.txt (RFC 9116)
+  url: well-known/admiral-group-security.txt
+- type: WellKnown
+  url: well-known/admiral-group-well-known.yml
+- type: Security
+  name: Confused.com Security Disclosure Policy
+  url: https://www.confused.com/privacy-and-security/security/security-disclosure-policy
+- type: VulnerabilityDisclosure
+  url: security/admiral-group-vulnerability-disclosure.yml
+- type: Packages
+  url: packages/admiral-group-packages.yml
+- type: LLMsTxt
+  url: llms/admiral-group-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
