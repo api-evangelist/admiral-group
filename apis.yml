@@ -27,6 +27,17 @@ description: >-
   catalog, and no ACORD, AL3 or NGDS reference was found. Distribution
   integration runs through price-comparison-website connections and partner
   agreements, not through a published developer program.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: partner-gated
