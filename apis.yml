@@ -1,5 +1,7 @@
 aid: admiral-group
 url: https://raw.githubusercontent.com/api-evangelist/admiral-group/refs/heads/main/apis.yml
+x-api-posture: no-product-api
+x-api-posture-basis: observed
 name: Admiral Group
 kind: company
 description: >-
@@ -73,7 +75,6 @@ modified: '2026-07-25'
 specificationVersion: '0.23'
 x-tier: carrier-pc
 x-home-market: United Kingdom
-x-api-posture: partner-gated
 apis: []
 common:
 - type: DomainSecurity
