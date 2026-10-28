@@ -1,4 +1,4 @@
-# Admiral Group (admiral-group)
+# Admiral Group
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,66 +64,85 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Admiral Group plc is a FTSE 100 personal-lines insurance group headquartered in Cardiff, Wales, and listed on the London Stock Exchange since 2004. Its home market is the United Kingdom, where it is one of the largest motor insurers, trading through the Admiral, Bell, Diamond, elephant.co.uk and Veygo brands and underwriting through EUI Limited and Admiral Insurance Company Limited. Beyond UK motor it writes household, travel and pet insurance (expanded by the 2024 acquisition of RSA's UK home and pet book, including the MORE THAN brand), runs the Admiral Money consumer lending arm, owns the Confused.com price comparison site, and operates internationally as ConTe.it in Italy, L'olivier in France and Admiral Seguros in Spain.
+Admiral Group plc is a FTSE 100 personal-lines insurance group headquartered in Cardiff, Wales, and listed on the London Stock Exchange since 2004. Its home market is the United Kingdom, where it is one of the largest motor insurers, trading through the Admiral, Bell, Diamond, elephant.co.uk and Veygo brands and underwriting through EUI Limited and Admiral Insurance Company Limited. Beyond UK motor it writes household, travel and pet insurance (expanded by the 2024 acquisition of RSA's UK home and pet book, including the MORE THAN brand), runs the Admiral Money consumer lending arm, owns the Confused.com price comparison site, and operates internationally as ConTe.it in Italy, L'olivier in France and Admiral Seguros in Spain. Its Admiral Pioneer venture arm builds new businesses including Veygo, Admiral Business and the API-first embedded insurance venture Connect by Admiral, and in 2026 it agreed to acquire the commercial fleet insurtech Flock. Admiral's API posture is honestly recorded here as closed: it is a direct-to-consumer and price-comparison distributor, not a broker-channel or platform carrier. No developer, developers, docs or api subdomain resolves on admiralgroup.co.uk; the corporate site is bot-blocked to automated probes; admiral.com publishes 837 sitemap URLs with no developer, API, partner or integration page; and the only API hosts that resolve (api.admiral.com, api.veygo.com) are undocumented private mobile and web backends that return 502 and 403 respectively. No public self-serve API, no OpenAPI, no Postman collection, no GraphQL surface, no webhook or event catalog, and no ACORD, AL3 or NGDS reference was found. Distribution integration runs through price-comparison-website connections and partner agreements, not through a published developer program.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/admiral-group/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/admiral-group/refs/heads/main/apis.yml)
+**Areas:** Insurance · United Kingdom · Property and Casualty · Auto Insurance · Home Insurance · Pet Insurance · Travel Insurance · Carrier · Personal Lines · Price Comparison · Embedded Insurance · Consumer Lending
 
-## Tags
+## Admiral Group on APIs.io
 
-- Insurance
-- United Kingdom
-- Property and Casualty
-- Motor Insurance
-- Home Insurance
-- Pet Insurance
-- Travel Insurance
-- Carrier
-- Personal Lines
-- Price Comparison
-- Embedded Insurance
-- Consumer Lending
-- Underwriting
-- Claims
-- Company
+Everything profiled for Admiral Group is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/admiral-group/](https://apis.io/providers/admiral-group/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-07-25
-- **Modified:** 2026-07-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (2)
 
-None. Admiral Group publishes no public, self-serve API.
+Authentication, trust centre, and vulnerability disclosure.
 
-This is an honest finding rather than a gap in research. Admiral is a direct-to-consumer and price-comparison personal-lines carrier, not a broker-channel or platform carrier, so the forcing functions that produce developer surfaces elsewhere in insurance do not reach it. The UK has no open-insurance obligation — the FCA's Open Finance work is still consultation, not rule — and the London Market modernisation programme (Blueprint Two, PPL, Whitespace, Ki) that drives the country's genuine insurance API infrastructure is a subscription-market effort aimed at brokers and syndicates, a market Admiral sits entirely outside.
+- [Admiral Group Domain Security](https://apis.io/security/admiral-group/admiral-group-domain-security/)
+- [Admiral Group Vulnerability Disclosure](https://apis.io/security/admiral-group/admiral-group-vulnerability-disclosure/)
 
-What was probed on 2026-07-25:
+## Where to find this API
 
-- `developer.`, `developers.`, `docs.` and `api.` on `admiralgroup.co.uk` — all NXDOMAIN.
-- `www.admiralgroup.co.uk` and its `/developers`, `/api`, `/developer`, `/partners`, `/integrations` paths — HTTP 403, bot-protected corporate investor site.
-- `www.admiral.com` — HTTP 200 consumer site; `/developers`, `/developer`, `/api`, `/partners`, `/api-docs`, `/openapi.json`, `/swagger.json`, `/.well-known/openid-configuration`, `/.well-known/security.txt`, `/llms.txt` all 404. All 837 sitemap URLs enumerated: no developer, API or integration page.
-- `api.admiral.com` — resolves, HTTP 502. Undocumented private backend.
-- `api.veygo.com` — resolves to AWS, returns `403 {"message":"Forbidden"}`. Private API Gateway behind the Veygo apps, not a published API.
-- No GitHub organisation for Admiral Group; the `Veygo` and `confusedcom` organisations exist with zero public repositories.
-- No public Postman collection, no GraphQL endpoint, no `.proto`, no webhook or event catalogue, no AsyncAPI.
-- The third-party API Tracker profile for Admiral Group carries an empty developer-docs, API-reference, webhooks, auth, sandbox, OpenAPI and GraphQL record — independent corroboration.
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### ACORD posture
+- [Website](https://www.admiralgroup.co.uk/)
+- [Support](https://www.admiral.com/contact-us)
+- [Blog](https://www.admiral.com/magazine)
+- [Security](https://www.confused.com/privacy-and-security/security/security-disclosure-policy)
+- [Terms of service](https://www.admiral.com/terms-and-conditions)
+- [Privacy policy](https://www.admiral.com/your-privacy-and-security)
 
-**No ACORD reference found.** No ACORD, AL3, ACORD XML, NGDS, or ACORD-certified mention appears on any Admiral Group property or in trade coverage of the group. That is consistent with the business model: ACORD messaging and agency-download plumbing serve the broker/agency channel, and Admiral distributes direct and through price comparison. Note the homonym trap — Admiral Insurance Group (`admiralins.com`), the US excess-and-surplus carrier owned by W. R. Berkley, does publish ACORD forms and is a **different company**.
+## API Evangelist rating
 
-### Adjacent ventures
+**Kin Score 15.4** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-- **Connect by Admiral** — an Admiral Pioneer embedded-insurance venture described in trade press as "API-first", built on Root's platform for point-of-sale distribution. `connectbyadmiral.com` now returns 403 and `www.` returns 404; no developer or docs subdomain resolves and no reference documentation was ever public. A B2B partner integration, never a developer program.
-- **Flock** — Admiral agreed in February 2026 to acquire the UK commercial fleet insurtech for £80m. Flock runs its own self-service portal and broker channel; that surface belongs to a separate provider record and is deliberately not claimed here.
+| Facet | Score |
+|---|---|
+| Discoverability | 56.3 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 34.2 |
 
-## Links
+**Agent readiness 0.0** — human-only
 
-- [Admiral Group plc (corporate)](https://www.admiralgroup.co.uk/)
-- [Admiral (UK consumer)](https://www.admiral.com/)
-- [About Admiral](https://www.admiral.com/about-us)
-- [Admiral Pioneer](https://www.admiralpioneer.com/)
-- [Veygo](https://www.veygo.com/)
-- [Confused.com](https://www.confused.com/)
-- [LinkedIn](https://www.linkedin.com/company/admiral-group-plc)
-- [Review findings](review.yml)
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 17.5** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/admiral-group/](https://apis.io/providers/admiral-group/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Admiral Group: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/admiral-group/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
